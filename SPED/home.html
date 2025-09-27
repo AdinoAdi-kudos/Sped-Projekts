@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - SpED Projekts</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header>
+        <h1>SpED Projekts</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search comics...">
+            <button id="searchBtn">Search</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 id="searchResultsTitle">Search Results</h2>
+        <div id="comic-list" class="comic-list">
+            <!-- Comic items will be inserted here by JavaScript -->
+        </div>
+        <button class="btn btn-secondary" id="backBtn">Back to Index</button>
+    </div>
+
+    <div id="messageBox" class="message-box">
+        <p id="messageText"></p>
+    </div>
+
+    <script src="home.js"></script>
+</body>
+</html>

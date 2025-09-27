@@ -1,18 +1,46 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" conent="ie-edge">
-        <title>My First JavaScript Page</title>
-        <link rel="stylesheet" href="index.css">
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>SpED Projekts - Comic Search</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
         <h1> SpED Projekts </h1>
-
-        <div class="container">
-            <button class="btn btn-primary" id="btn1">Hover it</button>
+        <div class="search-container">
+            <div class="search-wrapper">
+                <input type="text" id="searchInput" placeholder="Find comics...">
+                <button id="searchBtn">Search</button>
+                
+                <!-- Loading Spinner -->
+                <div id="loadingSpinner" class="loading-spinner">
+                    <div class="spinner"></div>
+                </div>
+                
+                <!-- Search Results Dropdown -->
+                <div id="searchDropdown" class="search-dropdown">
+                    <div id="resultsList" class="results-list"></div>
+                    <div class="dropdown-footer">
+                        <p id="resultsInfo"></p>
+                        <button id="viewAllBtn" class="btn btn-secondary">View All Results</button>
+                    </div>
+                </div>
+            </div>
         </div>
-        <script> src="index.js" </script>
-    </body>
-    </html>
+    </header>
+
+    <div class="container">
+        <button class="btn btn-primary" id="btn1">Hover it</button>
+        <button class="btn btn-secondary" id="navBtn">Go to Home</button>
+    </div>
+    
+    <div id="messageBox" class="message-box">
+        <p id="messageText"></p>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>

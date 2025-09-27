@@ -1,63 +1,238 @@
-        /* CSS Styles */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            color: white;
-            text-align: center;
-            padding: 20px;
-            min-height: 100vh;
-            margin: 0;
-            overflow-x: hidden;
-        }
-        
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: glow 2s infinite alternate;
-        }
-        
-        @keyframes glow {
-            from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073; }
-            to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073; }
-        }
-        
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .btn {
-            padding: 15px 25px;
-            font-size: 1.2rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-        
-        .btn:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50px;
-            transform: translateX(-100%);
-            transition: transform 0.5s ease;
-            z-index: -1;
-        }
-        
-        .btn:hover:before {
-            transform: translateX(0);
-        }
+/* CSS Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: rgba(12, 36, 97, 0.7);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #e60073; }
+    to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073; }
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    max-width: 400px; /* Add this */
+    width: 50%; /* Add this */
+    flex-shrink: 0; /* Add this to prevent shrinking */
+}
+
+.search-wrapper {
+    position: relative;
+    width: 75%;
+    /* max-width: 400px; Remove this since it's now on the parent */
+}
+
+#searchInput {
+    width: 100%;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #0c2461;
+    font-size: 1rem;
+    outline: none;
+    padding-right: 80px; /* Make space for the search button */
+}
+
+#searchBtn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px 15px;
+    background-color: #4a69bd;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+#searchBtn:hover {
+    background-color: #1e3799;
+    transform: translateY(-50%) scale(1.05);
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: #1e3799;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #1e3799;
+    color: white;
+}
+
+.btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50px;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+.btn:hover:before {
+    transform: translateX(0);
+}
+
+.message-box {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgba(74, 105, 189, 0.3);
+    box-shadow: 0 4px 9px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+#messageText {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+/* Loading Spinner */
+.loading-spinner {
+    position: absolute;
+    top: 50%;
+    right: 60px;
+    transform: translateY(-50%);
+    display: none;
+    z-index: 2;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Search Dropdown */
+.search-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(12, 36, 97, 0.95);
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+    display: none;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 5px;
+}
+
+.results-list {
+    text-align: left;
+}
+
+.result-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.result-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.result-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 3px;
+    color: #fdbb2d;
+}
+
+.result-author {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2px;
+}
+
+.result-chapter {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.dropdown-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#resultsInfo {
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+#viewAllBtn {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    border-radius: 15px;
+}
